@@ -6,7 +6,7 @@ using Assets.Scripts.Animation;
 namespace Assets.Scripts.Desk.Objects
 {
     [RequireComponent(typeof(AudioSource), typeof(Collider2D))]
-    public abstract class InteractableObject : DevObject
+    public abstract class InteractableObject : DevObject, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private SpriteRenderer highlightsSpriteRenderer;
 
@@ -18,8 +18,8 @@ namespace Assets.Scripts.Desk.Objects
         [SerializeField] private Sprite spriteHighlight1;
 
         [Header("Sound effects")]
-        [SerializeField] private AudioClip onTakeSound;
-        [SerializeField] private AudioClip onDragSound;
+        [SerializeField] protected AudioClip onTakeSound;
+        [SerializeField] protected AudioClip onDragSound;
 
         private bool _canHover = true;
         private bool _isDragging = false;
